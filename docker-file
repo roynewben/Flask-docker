@@ -1,0 +1,20 @@
+# Use a Python base image
+FROM python:3.9-slim
+
+# Set environment variables
+ENV SECRET_KEY=a4b6fc3e92da08cde5786b947825f4fcb38d24ab0ef9e1b2bc5d61d4f3920e0d
+
+# Set working directory
+WORKDIR /app
+
+# Copy application code to the container
+COPY . /app
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Expose port 5000
+EXPOSE 5000
+
+# Run the Flask app
+CMD ["python", "app.py"]
